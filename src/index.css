@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+/*@aplly*/
+body{
+    background-image: url("assets/images/clouds.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#root{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: flex-start;
+}
+@tailwind utilities;
