@@ -13,7 +13,6 @@ export const fetchData = () => async (dispatch, getState) => {
     if(data.cod!==200){
         console.error(`Error ${data.cod}: ${data.message}`)
     }
-    console.log(getState())
     console.log(getState().city.searchTerm)
     dispatch({type: FETCH_DATA, payload: data})
 }

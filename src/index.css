@@ -1,8 +1,7 @@
 @tailwind base;
 @tailwind components;
-/*@aplly*/
 body{
-    background-image: url("assets/images/clouds.png");
+    /*background-image: url("assets/images/clouds.png");*/
     background-repeat: no-repeat;
     background-size: cover;
 }
