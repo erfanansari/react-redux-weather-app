@@ -49,7 +49,7 @@ class App extends React.Component {
         const {data} = this.props;
         console.log(data.cod)
         return (
-            <div className="sm:max-w-full space-y-4 text-center"
+            <div className="sm:max-w-full space-y-4 text-center max-h-screen"
                  key={data.id}>
                 <form className="" onSubmit={this.handleSubmit}>
                     <input
