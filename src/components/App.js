@@ -8,16 +8,8 @@ import sunny from '../assets/images/sunny.png'
 class App extends React.Component {
 
     componentDidMount() {
-        console.log(this.props)
         document.body.style.backgroundImage = `url(${cloudy})`
-        // const weatherCondition = this.props.data?.weather?.main;
-        // if (weatherCondition !== 'Dust' || weatherCondition === 'Ash' || weatherCondition === 'Squall' || weatherCondition === 'Smoke' || weatherCondition === 'Tornado' || weatherCondition === 'Sand') {
-        //     document.body.style.backgroundImage = `url(${sunny})`
-        // } else {
-        //     document.body.style.backgroundImage = `url(${cloudy})`
-        // }
     }
-
 
 
     handleSubmit = (e) => {
@@ -40,8 +32,20 @@ class App extends React.Component {
         return new Intl.DateTimeFormat('en-US', options).format(now);
     }
 
+    renderBackground() {
+
+        if (this.props.data.weather) {
+            const weatherCondition = this.props.data.weather[0].main;
+            if (weatherCondition === 'Clear' || weatherCondition === 'Dust' || weatherCondition === 'Ash' || weatherCondition === 'Squall' || weatherCondition === 'Smoke' || weatherCondition === 'Tornado' || weatherCondition === 'Sand') {
+                document.body.style.backgroundImage = `url(${sunny})`
+            } else {
+                document.body.style.backgroundImage = `url(${cloudy})`
+            }
+        }
+    }
 
     render() {
+        this.renderBackground()
         const {data} = this.props;
         console.log(data.cod)
         return (
@@ -50,7 +54,7 @@ class App extends React.Component {
                 <form className="" onSubmit={this.handleSubmit}>
                     <input
                         placeholder="enter your city name"
-                        className="border-b-2 placeholder-white border-gray-500 text-center mt-16 bg-transparent mb-9 p-2 outline-none font-medium text-xl"
+                        className="border-b-2 placeholder-white border-gray-500 text-center md:mt-0 mt-16 bg-transparent mb-9 p-2 outline-none font-medium text-xl"
                         onChange={this.handleChange}
                         value={this.props.city} type="text"
                         name="input"/>
@@ -66,7 +70,6 @@ class App extends React.Component {
                         <h1 className="font-bold text-2xl text-white">{data.weather ? `${data.weather[0].main}` : '' || 'weather'}</h1>
                         <h1 className="font-medium text-gray-100">{data.weather ? `${data.weather[0].description}` : '' || 'description'}</h1>
                     </div>
-                    {/*{data.weather ? console.log('yes') : console.log('no')}*/}
                     {data.weather ? <img
                         src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
                         alt="icon"/> : ''}
