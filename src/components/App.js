@@ -28,14 +28,12 @@ class App extends React.Component {
 
 
     render() {
-        const conditions = ['Clear', 'Dust', 'Ash', 'Squall', 'Smoke', 'Tornado', 'Sand'];
-
         const {data} = this.props;
-        const weatherCondition = data.weather ? data.weather[0].main : 'nothing';
-        console.log(data.cod)
+        const conditions = ['Clear', 'Dust', 'Ash', 'Squall', 'Smoke', 'Tornado', 'Sand'];
+        const weatherCondition = data.weather ? data.weather[0].main : null;
         return (
             <div className="ui-container"
-                 style={{backgroundImage: `url(${conditions.find(el => el === weatherCondition) ? sunny : cloudy})`}}>
+                 style={{background: `url(${conditions.find(el => el === weatherCondition) ? sunny : cloudy}) center center fixed`}}>
                 <div
                     className="sm:max-w-full space-y-4 text-center max-h-screen"
                     key={data.id}>

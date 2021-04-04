@@ -4,15 +4,15 @@
 .ui-container{
     display: flex;
     min-height: 100vh;
+    max-height: 100vh;
     justify-content: center;
     align-items: center;
     background-size: cover;
-    background-position: center;
     transition: all .4s ease;
 }
 
 @media only screen and (min-width: 992px) {
-    body{
+    .ui-container{
         background-size: auto;
     }
 }
