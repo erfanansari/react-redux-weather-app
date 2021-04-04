@@ -4,11 +4,11 @@
 .ui-container{
     display: flex;
     min-height: 100vh;
-    max-height: 100vh;
     justify-content: center;
     align-items: center;
-    background-size: cover !important;
+    background-size: cover;
     transition: all .4s ease;
+    overflow: hidden;
 }
 
 @media only screen and (min-width: 992px) {
