@@ -33,7 +33,7 @@ class App extends React.Component {
         const weatherCondition = data.weather ? data.weather[0].main : null;
         return (
             <div className="ui-container"
-                 style={{background: `url(${conditions.includes(weatherCondition) ? sunny : cloudy}) center center fixed`}}>
+                 style={{background: `url(${conditions.includes(weatherCondition) ? sunny : cloudy})`}}>
                 <div
                     className="sm:max-w-full space-y-4 text-center max-h-screen"
                     key={data.id}>
