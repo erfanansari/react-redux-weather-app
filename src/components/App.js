@@ -6,12 +6,6 @@ import cloudy from '../assets/images/clouds.png'
 import sunny from '../assets/images/sunny.png'
 
 class App extends React.Component {
-
-    componentDidMount() {
-        document.body.style.backgroundImage = `url(${cloudy})`
-    }
-
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.fetchData()
@@ -32,49 +26,44 @@ class App extends React.Component {
         return new Intl.DateTimeFormat('en-US', options).format(now);
     }
 
-    renderBackground() {
-
-        if (this.props.data.weather) {
-            const weatherCondition = this.props.data.weather[0].main;
-            if (weatherCondition === 'Clear' || weatherCondition === 'Dust' || weatherCondition === 'Ash' || weatherCondition === 'Squall' || weatherCondition === 'Smoke' || weatherCondition === 'Tornado' || weatherCondition === 'Sand') {
-                document.body.style.backgroundImage = `url(${sunny})`
-            } else {
-                document.body.style.backgroundImage = `url(${cloudy})`
-            }
-        }
-    }
 
     render() {
-        this.renderBackground()
+        const conditions = ['Clear', 'Dust', 'Ash', 'Squall', 'Smoke', 'Tornado', 'Sand'];
+
         const {data} = this.props;
+        const weatherCondition = data.weather ? data.weather[0].main : 'nothing';
         console.log(data.cod)
         return (
-            <div className="sm:max-w-full space-y-4 text-center max-h-screen"
-                 key={data.id}>
-                <form className="" onSubmit={this.handleSubmit}>
-                    <input
-                        placeholder="enter your city name"
-                        className="border-b-2 placeholder-white border-gray-500 text-center md:mt-0 mb-9 bg-transparent mb-9 p-2 outline-none font-medium text-xl"
-                        onChange={this.handleChange}
-                        value={this.props.city} type="text"
-                        name="input"/>
-                </form>
-                {data.cod !== 200 && data.cod !== undefined ?
-                    <h1 className="font-normal text-2xl text-red-500">{`Error${data.cod}: ${data.message}`}</h1> : ''}
-                <h1 className="font-normal text-5xl my-2 text-white">{data.name || 'city'}</h1>
-                <h1 className="tracking-wider text-gray-200 font-medium py-0.5">{this.renderDate()}</h1>
-                <h1 className="font-bold text-white text-7xl border-b-2 border-white border-dashed inline-block pb-6">{data.main ? `${Math.round(data.main.temp)}` : '' || 'Temp'}°<span
-                    className="font-medium">c</span></h1>
-                <div className="flex items-center justify-center">
-                    <div>
-                        <h1 className="font-bold text-2xl text-white">{data.weather ? `${data.weather[0].main}` : '' || 'weather'}</h1>
-                        <h1 className="font-medium text-gray-100">{data.weather ? `${data.weather[0].description}` : '' || 'description'}</h1>
+            <div className="ui-container"
+                 style={{backgroundImage: `url(${conditions.find(el => el === weatherCondition) ? sunny : cloudy})`}}>
+                <div
+                    className="sm:max-w-full space-y-4 text-center max-h-screen"
+                    key={data.id}>
+                    <form className="" onSubmit={this.handleSubmit}>
+                        <input
+                            placeholder="enter your city name"
+                            className="border-b-2 placeholder-white border-gray-500 text-center md:mt-0 mb-9 bg-transparent mb-9 p-2 outline-none font-medium text-xl"
+                            onChange={this.handleChange}
+                            value={this.props.city} type="text"
+                            name="input"/>
+                    </form>
+                    {data.cod !== 200 && data.cod !== undefined ?
+                        <h1 className="font-normal text-2xl text-red-500">{`Error${data.cod}: ${data.message}`}</h1> : ''}
+                    <h1 className="font-normal text-5xl my-2 text-white">{data.name || 'city'}</h1>
+                    <h1 className="tracking-wider text-gray-200 font-medium py-0.5">{this.renderDate()}</h1>
+                    <h1 className="font-bold text-white text-7xl border-b-2 border-white border-dashed inline-block pb-6">{data.main ? `${Math.round(data.main.temp)}` : '' || 'Temp'}°<span
+                        className="font-medium">c</span></h1>
+                    <div className="flex items-center justify-center">
+                        <div>
+                            <h1 className="font-bold text-2xl text-white">{data.weather ? `${data.weather[0].main}` : '' || 'weather'}</h1>
+                            <h1 className="font-medium text-gray-100">{data.weather ? `${data.weather[0].description}` : '' || 'description'}</h1>
+                        </div>
+                        {data.weather ? <img
+                            src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                            alt="icon"/> : ''}
                     </div>
-                    {data.weather ? <img
-                        src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-                        alt="icon"/> : ''}
+                    <h1 className="font-bold text-white">{data.main ? `${Math.floor(data.main.temp_min)}°c / ${Math.round(data.main.temp_max)}°c` : '' || 'min / max'}</h1>
                 </div>
-                <h1 className="font-bold text-white">{data.main ? `${Math.floor(data.main.temp_min)}°c / ${Math.round(data.main.temp_max)}°c` : '' || 'min / max'}</h1>
             </div>
         )
     }
