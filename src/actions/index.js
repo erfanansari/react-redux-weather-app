@@ -7,6 +7,7 @@ const params = {
 }
 
 export const fetchData = () => async (dispatch, getState) => {
+    // const response = await fetch(`${params.baseURI}weather?q=${getState().city.searchTerm}&units=metric&APPID=${params.key}`)
     const response = await fetch(`${params.baseURI}weather?q=${getState().city.searchTerm}&units=metric&APPID=${params.key}`)
     const data = await response.json()
     console.log(data, 'data')

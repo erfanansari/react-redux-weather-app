@@ -9,13 +9,13 @@ body{
     display: flex;
     min-height: 100vh;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
-@media only screen and (min-width: 768px) {
-    #root{
-        align-items: center;
-    }
-}
+/*@media only screen and (min-width: 768px) {*/
+/*    #root{*/
+/*        align-items: center;*/
+/*    }*/
+/*}*/
 @media only screen and (min-width: 992px) {
     body{
         background-size: auto;

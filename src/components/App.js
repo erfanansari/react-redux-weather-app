@@ -54,7 +54,7 @@ class App extends React.Component {
                 <form className="" onSubmit={this.handleSubmit}>
                     <input
                         placeholder="enter your city name"
-                        className="border-b-2 placeholder-white border-gray-500 text-center md:mt-0 mt-16 bg-transparent mb-9 p-2 outline-none font-medium text-xl"
+                        className="border-b-2 placeholder-white border-gray-500 text-center md:mt-0 mb-9 bg-transparent mb-9 p-2 outline-none font-medium text-xl"
                         onChange={this.handleChange}
                         value={this.props.city} type="text"
                         name="input"/>
