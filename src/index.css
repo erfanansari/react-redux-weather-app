@@ -7,7 +7,8 @@
     justify-content: center;
     align-items: center;
     transition: all .4s ease;
-    overflow: hidden;
+    background-repeat: repeat-x !important;
+    background-size: contain !important;
 }
 
 @media only screen and (min-width: 992px) {
