@@ -8,12 +8,13 @@
     align-items: center;
     transition: all .4s ease;
     background-repeat: repeat-x !important;
-    background-size: contain !important;
+    background-size: 100% 100% !important;
 }
 
 @media only screen and (min-width: 992px) {
     .ui-container{
-        background-size: auto;
+        background-size: auto !important;
+        background-repeat: repeat !important;
     }
 }
 @tailwind utilities;
