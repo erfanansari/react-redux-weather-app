@@ -6,7 +6,7 @@
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    background-size: cover;
+    background-size: cover !important;
     transition: all .4s ease;
     overflow: hidden;
 }
