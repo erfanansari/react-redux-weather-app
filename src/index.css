@@ -1,22 +1,32 @@
 @tailwind base;
 @tailwind components;
 
-.ui-container{
+.ui-container {
     display: flex;
     min-height: 100vh;
     justify-content: center;
     align-items: center;
     transition: all .4s ease;
-    background-repeat: repeat-x !important;
-    background-size: 100% 100% !important;
-    background-attachment: fixed !important;
-    background-clip: padding-box;
 }
 
 @media only screen and (min-width: 992px) {
-    .ui-container{
-        background-size: auto !important;
-        background-repeat: repeat !important;
+    .ui {
+        background-size: auto;
     }
 }
+
+.h1-temp {
+    @apply text-7xl border-b-2 border-white border-dashed inline-block pb-6;
+}
+.h1-data{
+    @apply tracking-wider text-gray-200 font-medium py-0.5;
+}
+
+.search-term-input {
+    @apply md:mt-0 mb-9 bg-transparent mb-9 p-2 outline-none font-medium text-xl border-b-2 placeholder-white border-gray-500;
+}
+.flex-center{
+    @apply flex items-center justify-center;
+}
+
 @tailwind utilities;

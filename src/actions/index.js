@@ -7,14 +7,8 @@ const params = {
 }
 
 export const fetchData = () => async (dispatch, getState) => {
-    // const response = await fetch(`${params.baseURI}weather?q=${getState().city.searchTerm}&units=metric&APPID=${params.key}`)
-    const response = await fetch(`${params.baseURI}weather?q=${getState().city.searchTerm}&units=metric&APPID=${params.key}`)
+    const response = await fetch(`${params.baseURI}weather?q=${getState().searchTerm}&units=metric&APPID=${params.key}`)
     const data = await response.json()
-    console.log(data, 'data')
-    if(data.cod!==200){
-        console.error(`Error ${data.cod}: ${data.message}`)
-    }
-    console.log(getState().city.searchTerm)
     dispatch({type: FETCH_DATA, payload: data})
 }
 

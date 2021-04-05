@@ -4,5 +4,5 @@ import getInputValueReducer from './getInputValueReducer'
 
 export default combineReducers({
     data: dataReducer,
-    city: getInputValueReducer
+    searchTerm: getInputValueReducer
 })

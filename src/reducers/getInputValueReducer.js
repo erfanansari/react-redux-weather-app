@@ -1,11 +1,11 @@
 import {GET_INPUT_VALUE} from "../actions/types";
 
-const INITIAL_STATE = {searchTerm: ''}
+const INITIAL_STATE = '';
 
 const getInputValueReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case GET_INPUT_VALUE:
-            return {...state, searchTerm: action.term}
+            return action.term
         default:
             return state;
     }
