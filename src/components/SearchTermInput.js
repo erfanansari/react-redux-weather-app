@@ -26,7 +26,6 @@ const SearchTermInput = props => {
     )
 
 }
-
 const mapStateToProps = ({searchTerm}) => {
     return {
         searchTerm
