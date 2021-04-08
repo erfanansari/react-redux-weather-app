@@ -16,10 +16,9 @@ const WeatherCondition = ({data}) => {
         </div>
     );
 };
-const mapStateToProps = ({data, searchTerm}) => {
+const mapStateToProps = ({data}) => {
     return {
-        data,
-        searchTerm
+        data
     }
 }
 export default connect(mapStateToProps, null)(WeatherCondition);

@@ -2,34 +2,33 @@ import React from 'react';
 import {connect} from "react-redux";
 import {fetchData, getInputValue} from "../actions";
 import '../index.css'
-class SearchTermInput extends React.Component {
-    handleSubmit = (e) => {
+
+const SearchTermInput = props => {
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        this.props.fetchData()
+        props.fetchData()
     }
 
-    handleChange = (e) => {
-        this.props.getInputValue(e.target.value)
+    const handleChange = (e) => {
+        props.getInputValue(e.target.value)
     }
 
-    render() {
-        return (
-            <form className="" onSubmit={this.handleSubmit}>
-                <input
-                    placeholder="enter your city name"
-                    className="search-term-input text-center"
-                    onChange={this.handleChange}
-                    value={this.props.city} type="text"
-                    name="input"/>
-            </form>
-        )
-    };
+    return (
+        <form onSubmit={handleSubmit}>
+            <input
+                placeholder="enter your city name"
+                className="search-term-input text-center"
+                onChange={handleChange}
+                value={props.searchTerm} type="text"
+                name="input"/>
+        </form>
+    )
 
 }
 
-const mapStateToProps = ({data, searchTerm}) => {
+const mapStateToProps = ({searchTerm}) => {
     return {
-        data,
         searchTerm
     }
 }

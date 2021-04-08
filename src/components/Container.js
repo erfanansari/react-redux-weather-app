@@ -2,6 +2,7 @@ import React from 'react';
 import sunny from "../assets/images/sunny.png";
 import cloudy from "../assets/images/clouds.png";
 import {connect} from "react-redux";
+import '../index.css'
 
 const Container = ({data, children}) => {
     const conditions = ['Clear', 'Dust', 'Ash', 'Squall', 'Smoke', 'Tornado', 'Sand'];
@@ -15,10 +16,9 @@ const Container = ({data, children}) => {
 };
 
 
-const mapStateToProps = ({data, searchTerm}) => {
+const mapStateToProps = ({data}) => {
     return {
-        data,
-        searchTerm
+        data
     }
 }
 export default connect(mapStateToProps, null)(Container)

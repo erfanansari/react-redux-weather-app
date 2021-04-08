@@ -12,9 +12,9 @@ export const fetchData = () => async (dispatch, getState) => {
     dispatch({type: FETCH_DATA, payload: data})
 }
 
-export const getInputValue = (term) => {
+export const getInputValue = (searchTerm) => {
     return {
         type: GET_INPUT_VALUE,
-        term
+        payload: searchTerm
     }
 }

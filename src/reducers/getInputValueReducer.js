@@ -5,7 +5,7 @@ const INITIAL_STATE = '';
 const getInputValueReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case GET_INPUT_VALUE:
-            return action.term
+            return action.payload
         default:
             return state;
     }

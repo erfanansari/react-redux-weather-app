@@ -7,7 +7,7 @@ const Error = ({data}) => {
         <>
             {
                 data.cod !== 200 && data.cod !== undefined ?
-                    <h1 className="font-normal text-2xl text-red-500">{`Error${data.cod}: ${data.message}`}</h1> : ''
+                    <h1 className="font-normal text-2xl text-red-500">{`Error${data.cod}: ${data.message}`}</h1> : null
             }
         </>
     );
