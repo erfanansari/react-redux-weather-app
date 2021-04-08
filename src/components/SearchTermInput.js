@@ -19,7 +19,7 @@ class SearchTermInput extends React.Component {
                     placeholder="enter your city name"
                     className="search-term-input text-center"
                     onChange={this.handleChange}
-                    value={this.props.searchTerm} type="text"
+                    value={this.props.city} type="text"
                     name="input"/>
             </form>
         )
