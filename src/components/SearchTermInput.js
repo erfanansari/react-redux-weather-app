@@ -15,13 +15,18 @@ const SearchTermInput = props => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
             <input
                 placeholder="enter your city name"
                 className="search-term-input text-center"
                 onChange={handleChange}
                 value={props.searchTerm} type="text"
                 name="input"/>
+        
+            <button type="submit" className="submit-button">
+                Submit  
+            </button>
+
         </form>
     )
 
