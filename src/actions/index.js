@@ -1,4 +1,4 @@
-import {FETCH_DATA, GET_INPUT_VALUE} from "./types";
+import {FETCH_DATA, GET_INPUT_VALUE,CHANGE_LOADING_STATUS} from "./types";
 
 
 const params = {
@@ -18,3 +18,7 @@ export const getInputValue = (searchTerm) => {
         payload: searchTerm
     }
 }
+export const ChangeLoadingStatus = (status) => ({
+    type: CHANGE_LOADING_STATUS,
+    payload: status
+})
