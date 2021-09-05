@@ -29,7 +29,7 @@
     @apply flex items-center justify-center;
 }
 .loader {
-	border-top-color: red !important;
+	border-top-color: black !important;
 	-webkit-animation: spinner 1.5s linear infinite;
 	animation: spinner 1.5s linear infinite;
 }
