@@ -1,13 +1,15 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {fetchData, getInputValue} from "../actions";
+import {fetchData, getInputValue,ChangeLoadingStatus} from "../actions";
 import '../index.css'
 
 const SearchTermInput = props => {
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        props.fetchData()
+        props.ChangeLoadingStatus(true);
+        await props.fetchData()
+        props.ChangeLoadingStatus(false);
     }
 
     const handleChange = (e) => {
@@ -33,5 +35,6 @@ const mapStateToProps = ({searchTerm}) => {
 }
 export default connect(mapStateToProps, {
     fetchData,
-    getInputValue
+    getInputValue,
+    ChangeLoadingStatus
 })(SearchTermInput);
